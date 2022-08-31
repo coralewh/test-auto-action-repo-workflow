@@ -12,6 +12,7 @@ jobs:
         run: echo "::set-output name=date::$(date +"%Y-%m-%dT%H-%M-%S%z")"
       - name: date
         run: echo ${{steps.date.outputs.date}}
+      # After generation of SDK build
       - name: Checkout Code
         uses: coralewh/checkout@main
         with:
