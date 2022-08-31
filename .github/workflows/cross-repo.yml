@@ -2,7 +2,7 @@ name: Create Release Branch
 on:
   push:
     branches:
-      - "main"
+      - "master"
 jobs:
   Create-Release:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Code
         uses: coralewh/checkout@main
         with:
-          repository: coralewh/automated-action2
+          repository: coralewh/test-auto-action-repo
           ref: "master"
           path: SDK
           token: ${{ secrets.GH_TOKEN }}
@@ -48,7 +48,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN  }}
           head: release/${{steps.date.outputs.date}}
-          repository: coralewh/automated-action2
+          repository: coralewh/test-auto-action-repo
           base: master
           title: ${{steps.date.outputs.date}} into main
           reviewers: ${{ github.event.issue.user.login }}
